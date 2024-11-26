@@ -1,0 +1,48 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:gravity="center"
+android:padding="32dp"
+android:background="#1C1C1C">
+
+<TextView
+    android:id="@+id/titleText"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="俄羅斯方塊"
+    android:textSize="48sp"
+    android:textStyle="bold"
+    android:textColor="#FFFFFF"
+    android:layout_marginBottom="64dp"/>
+
+<Button
+    android:id="@+id/startButton"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="開始遊戲"
+    android:textSize="24sp"
+    android:padding="16dp"
+    android:layout_marginBottom="16dp"
+    android:background="@drawable/menu_button_background"/>
+
+<Button
+    android:id="@+id/aboutButton"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="關於我們"
+    android:textSize="24sp"
+    android:padding="16dp"
+    android:layout_marginBottom="16dp"
+    android:background="@drawable/menu_button_background"/>
+
+<Button
+    android:id="@+id/exitButton"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="結束遊戲"
+    android:textSize="24sp"
+    android:padding="16dp"
+    android:background="@drawable/menu_button_background"/>
+
+</LinearLayout>
