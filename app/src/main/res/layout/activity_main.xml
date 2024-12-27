@@ -1,48 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <com.example.tetris.TetrisView
+        android:id="@+id/tetrisView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
     <TextView
         android:id="@+id/scoreText"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Score: 0"
-        android:textSize="18sp"/>
-
-
+        android:layout_gravity="center"
+        android:text="Score: 0 Level: 1"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="16dp">
 
         <Button
             android:id="@+id/leftButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="←"/>
-
-        <Button
-            android:id="@+id/rotateButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="↻"/>
+            android:text="←"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_margin="4dp"
+            android:minHeight="60dp" />
 
         <Button
             android:id="@+id/rightButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="→"/>
+            android:text="→"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_margin="4dp"
+            android:minHeight="60dp" />
+
+        <Button
+            android:id="@+id/rotateButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="↻"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_margin="4dp"
+            android:minHeight="60dp" />
+
+        <Button
+            android:id="@+id/slowDropButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="▼"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_margin="4dp"
+            android:minHeight="60dp" />
+
         <Button
             android:id="@+id/dropButton"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Drop" />
+            android:layout_weight="1"
+            android:text="⚡"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_margin="4dp"
+            android:minHeight="60dp" />
     </LinearLayout>
 </LinearLayout>
