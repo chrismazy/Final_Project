@@ -3,11 +3,14 @@ package com.example.tetris;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
+
+import com.unity3d.player.UnityPlayerActivity;
 
 public class MainMenuActivity extends AppCompatActivity {
 
@@ -19,6 +22,10 @@ public class MainMenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_menu);
 
         youTubeApiClient = new YouTubeApiClient(this);
+
+
+
+
 
         TextView titleText = findViewById(R.id.titleText);
         Button startButton = findViewById(R.id.startButton);
@@ -32,6 +39,7 @@ public class MainMenuActivity extends AppCompatActivity {
         startButton.startAnimation(bounce);
         aboutButton.startAnimation(bounce);
         exitButton.startAnimation(bounce);
+        Intent unityIntent = new Intent(MainMenuActivity.this, UnityPlayerActivity.class);
 
         // 設置按鈕點擊事件
         startButton.setOnClickListener(v -> {
@@ -47,7 +55,8 @@ public class MainMenuActivity extends AppCompatActivity {
             new android.app.AlertDialog.Builder(this)
                     .setTitle("確認退出")
                     .setMessage("確定要退出遊戲嗎？")
-                    .setPositiveButton("是", (dialog, which) -> finish())
+                    .setPositiveButton("是", (dialog, which) -> {startActivity(unityIntent);
+                    finish();})
                     .setNegativeButton("否", null)
                     .show();
         });

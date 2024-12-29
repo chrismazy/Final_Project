@@ -6,6 +6,7 @@ android {
     namespace = "com.example.tetris"
     compileSdk = 34
 
+
     defaultConfig {
         applicationId = "com.example.tetris"
         minSdk = 24
@@ -14,6 +15,10 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            abiFilters.addAll(listOf("armeabi-v7a", "arm64-v8a", "x86_64"))
+        }
     }
 
     buildTypes {
@@ -40,6 +45,9 @@ dependencies {
     implementation ("com.google.apis:google-api-services-youtube:v3-rev222-1.25.0")
     implementation ("com.google.api-client:google-api-client-android:2.2.0")
     implementation ("com.google.oauth-client:google-oauth-client-jetty:1.34.1")
+
+    implementation(project(":unityLibrary"))
+    implementation(fileTree(mapOf("dir" to "../unityLibrary/libs", "include" to listOf("*.jar"))))
 
     implementation(libs.appcompat)
     implementation(libs.material)
