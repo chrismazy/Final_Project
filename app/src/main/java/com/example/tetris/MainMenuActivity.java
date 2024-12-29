@@ -11,10 +11,14 @@ import android.widget.TextView;
 
 public class MainMenuActivity extends AppCompatActivity {
 
+    private YouTubeApiClient youTubeApiClient;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+
+        youTubeApiClient = new YouTubeApiClient(this);
 
         TextView titleText = findViewById(R.id.titleText);
         Button startButton = findViewById(R.id.startButton);
@@ -23,7 +27,11 @@ public class MainMenuActivity extends AppCompatActivity {
 
         // 載入動畫
         Animation fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in);
+        Animation bounce = AnimationUtils.loadAnimation(this, R.anim.bounce);
         titleText.startAnimation(fadeIn);
+        startButton.startAnimation(bounce);
+        aboutButton.startAnimation(bounce);
+        exitButton.startAnimation(bounce);
 
         // 設置按鈕點擊事件
         startButton.setOnClickListener(v -> {
@@ -36,7 +44,12 @@ public class MainMenuActivity extends AppCompatActivity {
         });
 
         exitButton.setOnClickListener(v -> {
-            finish();
+            new android.app.AlertDialog.Builder(this)
+                    .setTitle("確認退出")
+                    .setMessage("確定要退出遊戲嗎？")
+                    .setPositiveButton("是", (dialog, which) -> finish())
+                    .setNegativeButton("否", null)
+                    .show();
         });
     }
 
@@ -48,9 +61,12 @@ public class MainMenuActivity extends AppCompatActivity {
                         "← →：左右移動\n" +
                         "↻：旋轉\n" +
                         "▼：慢速下落\n" +
-                        "⚡：快速下落\n\n"
-                       )
+                        "⚡：快速下落\n\n" +
+                        "觀看教學影片！")
                 .setPositiveButton("確定", null)
+                .setNeutralButton("觀看教學影片", (dialog, which) -> {
+                    youTubeApiClient.openYouTubeVideo();
+                })
                 .show();
     }
 }
