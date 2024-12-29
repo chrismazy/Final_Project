@@ -29,10 +29,18 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    packagingOptions {
+        exclude("META-INF/DEPENDENCIES")
+    }
 }
 
 dependencies {
     implementation ("androidx.appcompat:appcompat:1.6.1")
+
+    implementation ("com.google.apis:google-api-services-youtube:v3-rev222-1.25.0")
+    implementation ("com.google.api-client:google-api-client-android:2.2.0")
+    implementation ("com.google.oauth-client:google-oauth-client-jetty:1.34.1")
+
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
